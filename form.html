@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    label {
+      display: block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    
+    input[type="button"],
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    input[type="button"]:hover,
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <label for="full-name">ФИО:</label>
+    <input type="text" id="full-name" name="full-name">
+    <br><br>
+
+    <label for="gender">Пол:</label>
+    <select id="gender" name="gender">
+      <option value="Мужской">Мужской</option>
+      <option value="Женский">Женский</option>
+    </select>
+    <br><br>
+
+    <label for="dob">Дата рождения:</label>
+    <input type="date" id="dob" name="dob">
+    <br><br>
+
+    <label for="phone">Телефон:</label>
+    <input type="text" id="phone" name="phone">
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <br><br>
+
+    <label for="discount">% скидки:</label>
+    <input type="text" id="discount" name="discount">
+    <br><br>
+
+    <label for="source">Источник:</label>
+    <select id="source" name="source">
+      <option value="Яндекс">Яндекс</option>
+      <option value="Реклама в лифте">Реклама в лифте</option>
+    </select>
+    <br><br>
+
+    
+    <!-- <button type="submit" onclick="sendData()">Добавить клиента</button> -->
+    <input type="button" value="Добавить клиента" onclick="google.script.run.sendData(document.getElementById('full-name').value, document.getElementById('gender').value, document.getElementById('dob').value, document.getElementById('phone').value, document.getElementById('email').value, document.getElementById('discount').value, document.getElementById('source').value);">
+    <button type="button" onclick="closeForm()">Закрыть форму</button>
+</form>
+
+<script>
+    function closeForm() {
+        document.querySelector('form').reset();
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
